@@ -27,10 +27,12 @@
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row d-flex">
+                @foreach ($product as $product)
                 <div class="col-md-4 d-flex ftco-animatee">
+                  
                     <div class="blog-entry justify-content-end bgImage">
                         <a href="blog-single.html" class="block-20"
-                            style="background-image: url({{ 'frontend/images/image_1.jpg' }});">
+                            style="background-image: url({{ asset('storage/' . $product->image) }});">
                         </a>
                         <div class="text p-4 float-right d-block">
                             {{-- <div class="topper d-flex align-items-center">
@@ -42,20 +44,21 @@
                                     <span class="mos">January</span>
                                 </div>
                             </div> --}}
-                            <h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
+                            <h3 class="heading mb-0"><a href="#">  {{ $product->heading }}</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             </p>
                             <p><a href="#" class="btn btn-primary">Read more</a></p>
                         </div>
                     </div>
+                  
                 </div>
-                <div class="col-md-4 d-flex ftco-animatee">
+                {{-- <div class="col-md-4 d-flex ftco-animatee">
                     <div class="blog-entry justify-content-end bgImage">
                         <a href="blog-single.html" class="block-20"
                             style="background-image: url({{ 'frontend/images/image_2.jpg' }});">
                         </a>
                         <div class="text p-4 float-right d-block">
-                            {{-- <div class="topper d-flex align-items-center">
+                            <div class="topper d-flex align-items-center">
                                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
                                     <span class="day">24</span>
                                 </div>
@@ -63,8 +66,8 @@
                                     <span class="yr">2020</span>
                                     <span class="mos">January</span>
                                 </div>
-                            </div> --}}
-                            <h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
+                            </div>
+                            <h3 class="heading mb-0"><a href="#">All you want to know product industrial laws</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             </p>
                             <p><a href="#" class="btn btn-primary">Read more</a></p>
@@ -77,7 +80,7 @@
                             style="background-image: url({{ 'frontend/images/image_3.jpg' }});">
                         </a>
                         <div class="text p-4 float-right d-block">
-                            {{-- <div class="topper d-flex align-items-center">
+                            <div class="topper d-flex align-items-center">
                                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
                                     <span class="day">24</span>
                                 </div>
@@ -85,7 +88,7 @@
                                     <span class="yr">2020</span>
                                     <span class="mos">January</span>
                                 </div>
-                            </div> --}}
+                            </div>
                             <h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             </p>
@@ -99,7 +102,7 @@
                             style="background-image: url({{ 'frontend/images/image_4.jpg' }});">
                         </a>
                         <div class="text p-4 float-right d-block">
-                            {{-- <div class="topper d-flex align-items-center">
+                            <div class="topper d-flex align-items-center">
                                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
                                     <span class="day">24</span>
                                 </div>
@@ -107,7 +110,7 @@
                                     <span class="yr">2020</span>
                                     <span class="mos">January</span>
                                 </div>
-                            </div> --}}
+                            </div>
                             <h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             </p>
@@ -121,7 +124,7 @@
                             style="background-image: url({{ 'frontend/images/image_5.jpg' }});">
                         </a>
                         <div class="text p-4 float-right d-block">
-                            {{-- <div class="topper d-flex align-items-center">
+                            <div class="topper d-flex align-items-center">
                                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
                                     <span class="day">24</span>
                                 </div>
@@ -129,7 +132,7 @@
                                     <span class="yr">2020</span>
                                     <span class="mos">January</span>
                                 </div>
-                            </div> --}}
+                            </div>
                             <h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             </p>
@@ -143,7 +146,7 @@
                             style="background-image: url({{ 'frontend/images/image_6.jpg' }});">
                         </a>
                         <div class="text p-4 float-right d-block">
-                            {{-- <div class="topper d-flex align-items-center">
+                            <div class="topper d-flex align-items-center">
                                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
                                     <span class="day">24</span>
                                 </div>
@@ -151,15 +154,17 @@
                                     <span class="yr">2020</span>
                                     <span class="mos">January</span>
                                 </div>
-                            </div> --}}
+                            </div>
                             <h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             </p>
                             <p><a href="#" class="btn btn-primary">Read more</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+                @endforeach
             </div>
+            
             <div class="row mt-5">
                 <div class="col text-center">
                     <div class="block-27">

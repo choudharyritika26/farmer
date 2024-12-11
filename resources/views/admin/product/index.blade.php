@@ -7,9 +7,9 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1 style="margin-top: 20px">product Tables</h1>
+            <h1 style="margin-top: 20px">Product Tables</h1>
 
-            <h1 style=" margen:auto;"><a href="{{ route('add-product') }}">Add product</a></h1>
+            <h1 style="margin-left: 95%; margin-top: -30px"><a href="{{ route('add-product') }}">Add</a></h1>
 
         </div><!-- End Page Title -->
 
@@ -19,7 +19,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"> Table</h5>
+                            {{-- <h5 class="card-title"> Table</h5> --}}
 
                             <!-- Default Table -->
                             <div class="table-responsive">
@@ -43,7 +43,7 @@
                                             <td>{{ $item->description }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}" alt=""
-                                                    class="img-fluid" style="width:500px; height:150px;">
+                                                    class="img-fluid" style="width:200px; height:150px;">
                                             </td>
                                             <td class="text-center">
                                                 <div class="d-flex justify-content-center">

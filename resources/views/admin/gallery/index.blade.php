@@ -9,7 +9,7 @@
         <div class="pagetitle">
             <h1 style="margin-top: 20px">Gallery Tables</h1>
 
-            <h1 style=" margen:auto;"><a href="{{ route('add-gallery') }}">Add Gallery</a></h1>
+            <h1 style=" margin-left: 95%; margin-top: -30px"><a href="{{ route('add-gallery') }}">Add</a></h1>
 
         </div><!-- End Page Title -->
 

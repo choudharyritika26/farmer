@@ -45,14 +45,18 @@ class SliderController extends Controller
         }
         $slider->save();
       // dd($slider);
-      return redirect()->route('slider-index');
+      //return redirect()->route('slider-index');
         // return redirect()->route('');
+        return response()->json([
+            'message' => 'Product Add Successfully',
+            'redirect_url' => route('slider-index'),
+        ]);
          }
 
 
     //==============index page===================
         public function index(){
-            $slider = Slider::all();
+            $slider = Slider::where('is_active',1)->get();
             return view('admin.slider.index',compact('slider'));
         }  
 
@@ -89,7 +93,11 @@ class SliderController extends Controller
         // }
     
         $slider->update();
-        return redirect()->route('slider-index');
+        //return redirect()->route('slider-index');
+        return response()->json([
+            'message' => 'Product Edit Successfully',
+            'redirect_url' => route('slider-index'),
+        ]);
     }
         
         
@@ -97,8 +105,11 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slider = Slider::find($id);
-        $slider->delete();
-        return redirect()->back()->with('status','slider$slider Deleted Successfully');
+        // $slider->delete();
+        // return redirect()->back()->with('status','slider$slider Deleted Successfully');
+        $slider->is_active = 0; // Set is_active to 0, but don't delete the document
+        $slider->save(); // Save the changes
+        return redirect()->back()->with('status', 'slider ' . $slider->name . ' Deactivated Successfully');
     }
 //=================End-delete=================
 }

@@ -30,14 +30,18 @@ class ContactUsDetalesController extends Controller
         $contactusdetales->phone_no = $request->input('phone_no');
         $contactusdetales->save();
       // dd($contactusdetales);
-       return redirect()->route('contactusdetales-index');
+       //return redirect()->route('contactusdetales-index');
         // return redirect()->route('');
+        return response()->json([
+            'message' => 'Contact Us Detales Add Successfully',
+            'redirect_url' => route('contactusdetales-index'),
+        ]);
          }
 
 
     //==============index page===================
         public function index(){
-            $contactusdetales = contactusdetales ::all();
+            $contactusdetales = contactusdetales ::where('is_active',1)->get();
             return view('admin.contactusdetales.index',compact('contactusdetales'));
         }  
 
@@ -54,8 +58,13 @@ class ContactUsDetalesController extends Controller
         $contactusdetales->address = $request->input('address');
         $contactusdetales->email_id = $request->input('email_id');
         $contactusdetales->phone_no = $request->input('phone_no');
+
         $contactusdetales->update();
-        return redirect()->route('contactusdetales-index');
+        //return redirect()->route('contactusdetales-index');
+        return response()->json([
+            'message' => 'Contact Us Detales Edit Successfully',
+            'redirect_url' => route('contactusdetales-index'),
+        ]);
     }
         
         
@@ -63,8 +72,12 @@ class ContactUsDetalesController extends Controller
     public function destroy($id)
     {
         $contactusdetales = ContactUsDetales::find($id);
-        $contactusdetales->delete();
-        return redirect()->back()->with('status','contactusdetales$contactusdetales Deleted Successfully');
+        // $contactusdetales->delete();
+        // return redirect()->back()->with('status','contactusdetales$contactusdetales Deleted Successfully');
+      
+        $contactusdetales->is_active = 0; // Set is_active to 0, but don't delete the document
+        $contactusdetales->save(); // Save the changes
+        return redirect()->back()->with('status', 'contactusdetales ' . $contactusdetales->name . ' Deactivated Successfully');
     }
 //=================End-delete=================
 }

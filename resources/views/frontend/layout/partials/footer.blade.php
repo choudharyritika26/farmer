@@ -5,7 +5,7 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Who We Are</h2>
                     {{-- <h5 class="logo"><a href="#"></a></h5> --}}
-                    <p style="font-size: 13px">Sardar Agro Tanda is one of Leading the leading Manufacturers and
+                    <p >Sardar Agro Tanda is one of Leading the leading Manufacturers and
                         Exporters of High quality,
                         Agricultural Equipment. We manufacture extremely efficient and useful machines that are suitable
                         for various kinds of agricultural works.</p>
@@ -40,21 +40,21 @@
                         @foreach ($contact_us_detales as $contact_us_detale)
                         <ul>
                             <li><span class="icon icon-map-marker"></span><span class="text">
-                                    <div style="line-height: 0.5;">
-                                        <p style="font-size: 13px">
+                                    
+                                        <p >
                                         {{-- Sardar Agro Industries
                                          Ploat No. 103-104
                                          Focal Point, GT Road Tanda
                                          Distt. Hoshiarpur (PB) India --}}
                                          {!! html_entity_decode($contact_us_detale->address) !!}
                                         </p>
-                                    </div>
+                                    
                                 </span></li>
                             <li><a href="#"><span class="icon icon-phone"></span><span class="text">
-                                        <p style="font-size: 14px; "> {{$contact_us_detale->phone_no}}</p>
+                                        <p > {{$contact_us_detale->phone_no}}</p>
                                     </span></a></li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span class="text">
-                                        <p style="font-size: 14px"> {{$contact_us_detale->email_id}}</p>
+                                        <p > {{$contact_us_detale->email_id}}</p>
                                     </span></a></li>
                         </ul>
                          @endforeach

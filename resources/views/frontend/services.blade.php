@@ -29,8 +29,11 @@
                         <p>We provide Following Services</p>
                         {{-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
                             is a paradisematic country, in which roasted parts of sentences fly into your.</p> --}}
-                        <li>Design</li>
-                        <li>Welding</li>
+                        @foreach ($services as $item)
+                            
+                        
+                        <li>{{$item->heading}}</li>
+                        {{-- <li>Welding</li>
                         <li>Lathe Work</li>
                         <li>Milling & Drill Pressing</li>
                         <li>Sawing</li>
@@ -38,11 +41,17 @@
                         <li>Mowers</li>
                         <li>Citrus harvesting machines</li>
                         <li>Sprayers</li>
-                        <li>Fertilizer spreaders</li>
+                        <li>Fertilizer spreaders</li> --}}
+                        @endforeach
                         <br>
-                        <p>Other capabilities include shearing, press braking, web rolling, pressing, portable , plasma
+                        @foreach ($services_discriptions as $items)
+                        <p>
+                            {!! html_entity_decode($items->description) !!}
+                            {{-- Other capabilities include shearing, press braking, web rolling, pressing, portable , plasma
                             cutting, MIG,TIG & Arc welding, Products include steel, stainless steel & aluminum welding gases
-                            & supplies, ferrous & non-ferrous metal plates, sheets, pipes, tubes, angles & solid rounds.</p>
+                            & supplies, ferrous & non-ferrous metal plates, sheets, pipes, tubes, angles & solid rounds. --}}
+                        </p>
+                        @endforeach
                         {{-- <p><a href="#" class="btn btn-primary py-3 px-4">Get a Quote</a></p> --}}
                     </div>
                 </div>

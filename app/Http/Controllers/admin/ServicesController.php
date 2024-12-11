@@ -21,15 +21,16 @@ class ServicesController extends Controller
 
         $validatedData = $request->validate([
             'heading' => 'required',
-            'description' => 'required',
+            //'description' => 'required',
             //'image'=> 'required|mimes:jpeg,jpg,png,gif|max:10000',
-            'image'=> 'required|image',
+            'image'=> 'nullable|image',
            
         ]);
         
-        $services = new services;
+        $services = new Services;
         $services->heading = $request->input('heading');
         $services->description = $request->input('description');
+        $services->is_active = 1;
         // $services->image = $request->input('image');
         if($request->hasfile('image'))
         {
@@ -41,14 +42,19 @@ class ServicesController extends Controller
         }
         $services->save();
       // dd($services);
-      return redirect()->route('services-index');
+      //return redirect()->route('services-index');
         // return redirect()->route('');
+        return response()->json([
+            'message' => 'Product Add Successfully',
+            'redirect_url' => route('services-index'),
+        ]);
          }
 
 
     //==============index page===================
         public function index(){
             $services = services::all();
+            $services = services::where('is_active',1)->get();
             return view('admin.services.index',compact('services'));
         }  
 
@@ -85,7 +91,11 @@ class ServicesController extends Controller
         // }
     
         $services->update();
-        return redirect()->route('services-index');
+        //return redirect()->route('services-index');
+        return response()->json([
+            'message' => 'Product Edit Successfully',
+            'redirect_url' => route('services-index'),
+        ]);
     }
         
         
@@ -93,9 +103,19 @@ class ServicesController extends Controller
     public function destroy($id)
     {
         $services = services::find($id);
-        $services->delete();
-        return redirect()->back()->with('status','services$services Deleted Successfully');
+        // $services->delete();
+        $services->is_active = 0; // Set is_active to 0, but don't delete the document
+        $services->save(); // Save the changes
+       // return redirect()->back()->with('status','services $services Deleted Successfully');
+       return redirect()->route('services-index');
     }
+    // public function destroy($id)
+    // {
+    //     $about = About::find($id);
+    //     $about->is_active = 0; // Set is_active to 0, but don't delete the document
+    //     $about->save(); // Save the changes
+    //     return redirect()->back()->with('status', 'About ' . $about->name . ' Deactivated Successfully');
+    // }
 //=================End-delete=================
 
 }

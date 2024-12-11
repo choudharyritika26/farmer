@@ -15,4 +15,10 @@ class Singleproduct extends Model
         'description',
         'image',
     ];
+
+    public function productHeading()
+    {
+        // Assuming the foreign key is 'product_id' in the SingleProduct table
+        return $this->belongsTo(Product::class, 'product');
+    }
 }

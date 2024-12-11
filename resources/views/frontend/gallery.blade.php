@@ -11,9 +11,9 @@
             <div class="row no-gutters slider-text align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
                     <h1 class="mb-3 bread">Our Gallery</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                    {{-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span>Services <i
-                                class="ion-ios-arrow-forward"></i></span></p>
+                                class="ion-ios-arrow-forward"></i></span></p> --}}
                 </div>
             </div>
         </div>
@@ -172,7 +172,7 @@
         </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb bg-primary mt-4">
+    {{-- <section class="ftco-section ftco-no-pt ftco-no-pb bg-primary mt-4">
         <div class="container mt-4">
             <div class="row d-flex justify-content-center mt-4">
                 <div class="col-lg-8 py-4">
@@ -192,7 +192,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
 
 @section('script')

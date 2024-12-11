@@ -85,12 +85,12 @@
                 <span>Gallery</span>
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('services-index')}}">
                 <i class="bi bi-file-earmark"></i>
                 <span>Services</span>
             </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('product-index')}}">
                 <i class="bi bi-file-earmark"></i>
@@ -107,11 +107,73 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('contactusdetales-index')}}">
                 <i class="bi bi-file-earmark"></i>
-                <span>Contact Us</span>
+                <span>Footer</span>
             </a>
         </li>
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('contact-index')}}">
+                <i class="bi bi-file-earmark"></i>
+                <span>Contact Form</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('management-index')}}">
+                <i class="bi bi-file-earmark"></i>
+                <span>Management</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#services-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="services-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('services-index')}}">
+                        <i class="bi bi-circle"></i><span>Services Heading</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('servicesdis-index')}}">
+                        <i class="bi bi-circle"></i><span>services Description</span>
+                    </a>
+                </li>
+
+               
+
+            </ul>
+        </li><!-- End Components Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#dropdown-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Dropdown List</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="dropdown-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('aboutuslist-index')}}">
+                        <i class="bi bi-circle"></i><span>About Dropdown</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('ourproductlist-index')}}">
+                        <i class="bi bi-circle"></i><span>Our Product Dropdown </span>
+                    </a>
+                </li>
+
+            </ul>
+        </li><!-- End dropdown Nav -->
+
+        {{-- <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-blank.html">
+                <i class="bi bi-file-earmark"></i>
+                <span>Blank</span>
+            </a>
+        </li><!-- End Blank Page Nav --> --}}
+
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -128,14 +190,8 @@
                 </li>
 
             </ul>
-        </li><!-- End Components Nav -->
+        </li><!-- End Components Nav --> --}}
 
-        {{-- <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
-                <i class="bi bi-file-earmark"></i>
-                <span>Blank</span>
-            </a>
-        </li><!-- End Blank Page Nav --> --}}
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('logout') }}"

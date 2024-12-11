@@ -42,6 +42,8 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item active"><a href="{{ route('frontend.index') }}" class="nav-link">Home</a></li>
+                
+                
                 <li class="nav-item dropdown">
                     {{-- <a class="nav-link dropdown-toggle" href="{{ route('frontend.about') }}" role="button"
                         data-toggle="dropdown" aria-expanded="false">
@@ -49,24 +51,43 @@
                     </a> --}}
                     <a href="{{ route('frontend.about') }}" class="nav-link">About us</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('frontend.management') }}">Management</a>
-                        <a class="dropdown-item" href="#">Vision and Mission</a>
+                        @foreach ($about_us_lists as $about_us_lists)         
+                        <a class="dropdown-item" href="{{ route('frontend.management', $about_us_lists->id) }}">{{ $about_us_lists->heading }}</a>
+                        {{-- <a class="dropdown-item" href="#">Vision and Mission</a> --}}
+                        @endforeach
+                    </div>
                 </li>
+                
+                
                 {{-- <li class="nav-item"><a href="{{ route('frontend.about') }}" class="nav-link">About us</a></li> --}}
                 <li class="nav-item"><a href="{{ route('frontend.services') }}" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="{{ route('frontend.gallery') }}" class="nav-link">Gallery</a></li>
+                
+                
                 <li class="nav-item dropdown">
+                  
                     <a href="{{ route('frontend.product') }}" class="nav-link">Our Product</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cultivators</a>
-                        <a class="dropdown-item" href="#">Tractor Trolley</a>
+                        @foreach ($our_product_lists as $our_product_lists)
+                        <a class="dropdown-item" href="{{ route('singleproduct', $our_product_lists->id) }}">  {{ $our_product_lists->heading }}</a>
+                        {{-- <a class="dropdown-item" href="#">Tractor Trolley</a> --}}
                         {{-- <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div> --}}
+                        <a class="dropdown-item" href="#">Something else here</a> --}}
+                        {{-- <div class="dropdown-submenu" style="position: absolute; margin-left:1cm;">
+                            <ul>
+                                <li>tyrdfgdfgdfg</li>
+                            </ul>
+                            <a class="dropdown-item" href="#">  </a>
+                        </div> --}}
+                        @endforeach
+                    </div>
+                    
+                   
                 </li>
-                <li class="nav-item"><a href="{{ route('frontend.singleproduct') }}" class="nav-link">Single-Product</a></li>
+
+                {{-- <li class="nav-item"><a href="{{ route('frontend.singleproduct') }}" class="nav-link">Single-Product</a></li> --}}
                 
-                <li class="nav-item"><a href="{{ route('frontend.contact') }}" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="{{ route('frontend.contact') }}" class="nav-link">Contact Us</a></li>
                 
             </ul>
         </div>

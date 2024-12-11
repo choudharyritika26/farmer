@@ -40,8 +40,12 @@ class AboutController extends Controller
         }
         $about->save();
       // dd($about);
-      return redirect()->route('about-index');
+      //return redirect()->route('about-index');
         // return redirect()->route('');
+        return response()->json([
+            'message' => 'Product Add Successfully',
+            'redirect_url' => route('about-index'),
+        ]);
          }
 
 
@@ -72,7 +76,11 @@ class AboutController extends Controller
         }
 
         $about->update();
-        return redirect()->route('about-index');
+        // return redirect()->route('about-index');
+        return response()->json([
+            'message' => 'Product Edit Successfully',
+            'redirect_url' => route('about-index'),
+        ]);
     }
         
         

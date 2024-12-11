@@ -26,7 +26,9 @@ Route::get('/gallery', [App\Http\Controllers\frontend\IndexController::class, 'g
 Route::get('/services', [App\Http\Controllers\frontend\IndexController::class, 'services'])->name('frontend.services');
 Route::get('/contact', [App\Http\Controllers\frontend\IndexController::class, 'contact'])->name('frontend.contact');
 Route::get('/singleproduct', [App\Http\Controllers\frontend\IndexController::class, 'singleproduct'])->name('frontend.singleproduct');
-Route::get('/management', [App\Http\Controllers\frontend\IndexController::class, 'management'])->name('frontend.management');
+Route::get('/singleproduct/{id}', [App\Http\Controllers\frontend\IndexController::class, 'singleproductpage'])->name('singleproduct');
+//Route::get('/management', [App\Http\Controllers\frontend\IndexController::class, 'management'])->name('frontend.management');
+Route::get('/management/{id}', [App\Http\Controllers\frontend\IndexController::class, 'management'])->name('frontend.management');
 
 
 //==============================Login And Register ===========================
@@ -89,11 +91,51 @@ Route::get('/edit-contactusdetales/{id}', [App\Http\Controllers\admin\Contactusd
 Route::post('/update-contactusdetales/{id}', [App\Http\Controllers\admin\ContactusdetalesController::class,'update'])->name('update-contactusdetales');
 Route::delete('/delete-contactusdetales/{id}', [App\Http\Controllers\admin\ContactusdetalesController::class,'destroy'])->name('destroy-contactusdetales');
 
-// ==========================Services crud=================================
+// ==========================Services Heading crud=================================
 Route::get('/add-services', [App\Http\Controllers\admin\ServicesController::class,'create'])->name('add-services');
 Route::post('/store-services', [App\Http\Controllers\admin\ServicesController::class,'store'])->name('store-services');
 Route::get('/services-index', [App\Http\Controllers\admin\ServicesController::class,'index'])->name('services-index');
 Route::get('/edit-services/{id}', [App\Http\Controllers\admin\ServicesController::class,'edit'])->name('edit-services');
 Route::post('/update-services/{id}', [App\Http\Controllers\admin\ServicesController::class,'update'])->name('update-services');
 Route::delete('/delete-services/{id}', [App\Http\Controllers\admin\ServicesController::class,'destroy'])->name('destroy-services');
+
+
+// ==========================Services Discription crud=================================
+Route::get('/add-servicesdis', [App\Http\Controllers\admin\ServicesDiscriptionController::class,'create'])->name('add-servicesdis');
+Route::post('/store-servicesdis', [App\Http\Controllers\admin\ServicesDiscriptionController::class,'store'])->name('store-servicesdis');
+Route::get('/servicesdis-index', [App\Http\Controllers\admin\ServicesDiscriptionController::class,'index'])->name('servicesdis-index');
+Route::get('/edit-servicesdis/{id}', [App\Http\Controllers\admin\ServicesDiscriptionController::class,'edit'])->name('edit-servicesdis');
+Route::post('/update-servicesdis/{id}', [App\Http\Controllers\admin\ServicesDiscriptionController::class,'update'])->name('update-servicesdis');
+Route::delete('/delete-servicesdis/{id}', [App\Http\Controllers\admin\ServicesDiscriptionController::class,'destroy'])->name('destroy-servicesdis');
+
+// ==========================Our Product List crud=================================
+Route::get('/add-ourproductlist', [App\Http\Controllers\admin\OurProductListController::class,'create'])->name('add-ourproductlist');
+Route::post('/store-ourproductlist', [App\Http\Controllers\admin\OurProductListController::class,'store'])->name('store-ourproductlist');
+Route::get('/ourproductlist-index', [App\Http\Controllers\admin\OurProductListController::class,'index'])->name('ourproductlist-index');
+Route::get('/edit-ourproductlist/{id}', [App\Http\Controllers\admin\OurProductListController::class,'edit'])->name('edit-ourproductlist');
+Route::post('/update-ourproductlist/{id}', [App\Http\Controllers\admin\OurProductListController::class,'update'])->name('update-ourproductlist');
+Route::delete('/delete-ourproductlist/{id}', [App\Http\Controllers\admin\OurProductListController::class,'destroy'])->name('destroy-ourproductlist');
+
+// ==========================Our Product List crud=================================
+Route::get('/add-aboutuslist', [App\Http\Controllers\admin\AboutUsListController::class,'create'])->name('add-aboutuslist');
+Route::post('/store-aboutuslist', [App\Http\Controllers\admin\AboutUsListController::class,'store'])->name('store-aboutuslist');
+Route::get('/aboutuslist-index', [App\Http\Controllers\admin\AboutUsListController::class,'index'])->name('aboutuslist-index');
+Route::get('/edit-aboutuslist/{id}', [App\Http\Controllers\admin\AboutUsListController::class,'edit'])->name('edit-aboutuslist');
+Route::post('/update-aboutuslist/{id}', [App\Http\Controllers\admin\AboutUsListController::class,'update'])->name('update-aboutuslist');
+Route::delete('/delete-aboutuslist/{id}', [App\Http\Controllers\admin\AboutUsListController::class,'destroy'])->name('destroy-aboutuslist');
+
+
+// ========================== Contact Form ================================
+Route::post('/store-contact', [App\Http\Controllers\frontend\ContactFormController::class,'store'])->name('store-contact');
+Route::get('/contact-index', [App\Http\Controllers\frontend\ContactFormController::class,'index'])->name('contact-index');
+Route::delete('/delete-contact/{id}', [App\Http\Controllers\frontend\ContactFormController::class,'destroy'])->name('destroy-contact');
+
+
+// ==========================Management crud=================================
+Route::get('/add-management', [App\Http\Controllers\admin\ManagementController::class,'create'])->name('add-management');
+Route::post('/store-management', [App\Http\Controllers\admin\ManagementController::class,'store'])->name('store-management');
+Route::get('/management-index', [App\Http\Controllers\admin\ManagementController::class,'index'])->name('management-index');
+Route::get('/edit-management/{id}', [App\Http\Controllers\admin\ManagementController::class,'edit'])->name('edit-management');
+Route::post('/update-management/{id}', [App\Http\Controllers\admin\ManagementController::class,'update'])->name('update-management');
+Route::delete('/delete-management/{id}', [App\Http\Controllers\admin\ManagementController::class,'destroy'])->name('destroy-management');
 

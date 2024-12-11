@@ -45,14 +45,18 @@ class GalleryController extends Controller
         }
         $gallery->save();
       // dd($gallery);
-      return redirect()->route('gallery-index');
+      //return redirect()->route('gallery-index');
         // return redirect()->route('');
+        return response()->json([
+            'message' => 'Product Add Successfully',
+            'redirect_url' => route('gallery-index'),
+        ]);
          }
 
 
     //==============index page===================
         public function index(){
-            $gallery = Gallery::all();
+            $gallery = Gallery::where('is_active',1)->get();
             return view('admin.gallery.index',compact('gallery'));
         }  
 
@@ -89,7 +93,11 @@ class GalleryController extends Controller
         // }
     
         $gallery->update();
-        return redirect()->route('gallery-index');
+        //return redirect()->route('gallery-index');
+        return response()->json([
+            'message' => 'Product Edit Successfully',
+            'redirect_url' => route('gallery-index'),
+        ]);
     }
         
         
@@ -97,8 +105,11 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $gallery = Gallery::find($id);
-        $gallery->delete();
-        return redirect()->back()->with('status','gallery$gallery Deleted Successfully');
+        // $gallery->delete();
+        // return redirect()->back()->with('status','gallery$gallery Deleted Successfully');
+        $gallery->is_active = 0; // Set is_active to 0, but don't delete the document
+        $gallery->save(); // Save the changes
+        return redirect()->back()->with('status', 'gallery ' . $gallery->name . ' Deactivated Successfully');
     }
 //=================End-delete=================
 }

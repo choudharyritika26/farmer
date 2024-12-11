@@ -7,7 +7,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1 style="margin-top: 20px">Edit contactusdetalest</h1>
+            <h1 style="margin-top: 20px">Edit Contact Us Detalest</h1>
             {{-- <button class="btn btn-dark" href="{{ route('contactusdetales-index') }}">Submit</button> --}}
             <span>
                 <h1 style="margin-top:-30px; margin-left:95%;"><a href="{{ route('contactusdetales-index') }}">Back</a></h1>
@@ -29,7 +29,12 @@
                     @endif
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">contactusdetales Form</h5>
+                            {{-- <h5 class="card-title"> Edit Form</h5> --}}
+                            <div class="errorlist">
+                                <div id="errorMessages" class="alert alert-danger" style="display: none;">
+                                    <ul></ul>
+                                </div>
+                            </div>
 
                             <!-- Vertical Form -->
                             <form class="row g-3" action="{{ route('update-contactusdetales',$contactusdetales->id) }}" method="post"
@@ -79,7 +84,7 @@
                                         id="phone">
                                 </div>
 
-                                <div class="card-action">
+                                <div class="card-action submitEditContactusdetalesBtn">
                                     <button class="btn btn-success" href="{{ route('contactusdetales-index') }}">Submit</button>
                                     {{-- <button class="btn btn-danger">Cancel</button> --}}
                                 </div>
@@ -94,5 +99,79 @@
     </main><!-- End #main -->
 @endsection
 
+
 @section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function() {
+        // Handle the form submission for the contactusdetales
+        $('.submitEditContactusdetalesBtn').click(function(e) {
+            //alert('jijed');
+            e.preventDefault();
+
+            // Create a new FormData instance
+            var formData = new FormData($(this).closest('form')[0]);
+
+            // Send the AJAX request with the CSRF token
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                // Adjust the route for the contactusdetales form submission
+                url: '{{ route('update-contactusdetales', $contactusdetales->id) }}',
+                data: formData,
+                contentType: false, // Important: Set this to false to send the file
+                processData: false, // Important: Set this to false to send the file
+                dataType: 'json',
+                success: function(response) {
+                    if (response.message) {
+                        // Display the SweetAlert with a confirmation button
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success', // Optional: set the icon type
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Redirect to the specified URL
+                                if (response.redirect_url) {
+                                    window.location.href = response.redirect_url;
+                                }
+                            }
+                        });
+                    }
+                },
+                error: function(xhr) {
+                    // Clear previous error messages
+                    $('#errorMessages ul').empty();
+
+                    // Handle the error response
+                    if (xhr.responseJSON.errors) {
+                        // Show the alert
+                        $('#errorMessages').show();
+
+                        // Loop through the errors and append to the error list
+                        $.each(xhr.responseJSON.errors, function(key, messages) {
+                            messages.forEach(function(message) {
+                                $('#errorMessages ul').append('<li>' +
+                                    message + '</li>');
+                            });
+                        });
+                    } else {
+                        // If there are no specific validation errors, you can show a general error message
+                        $('#errorMessages').show();
+                        $('#errorMessages ul').append(
+                            '<li>There was an error processing your request.</li>');
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection
+

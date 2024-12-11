@@ -9,7 +9,7 @@
         <div class="pagetitle">
             <h1 style="margin-top: 20px">Services Tables</h1>
 
-            <h1 style=" margen:auto;"><a href="{{ route('add-services') }}">Add single product</a></h1>
+            <h1 style="margin-top:-30px; margin-left:95%;"><a href="{{ route('add-services') }}">Add </a></h1>
 
         </div><!-- End Page Title -->
 
@@ -18,8 +18,8 @@
                 <div class="col-lg-12">
 
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"> Table</h5>
+                        <div class="card-body p-3">
+                            {{-- <h5 class="card-title"> Table</h5> --}}
 
                             <!-- Default Table -->
                             <div class="table-responsive">
@@ -29,8 +29,8 @@
                                         
                                         <th>Sr.No</th>
                                         <th scope="col">Heading</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Image</th>
+                                        {{-- <th scope="col">Description</th>
+                                        <th scope="col">Image</th> --}}
                                         
                                         <th scope="col">Action</th>
                                     </tr>
@@ -40,11 +40,11 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->heading }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            {{-- <td>{{ $item->description }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}" alt=""
-                                                    class="img-fluid" style="width:500px; height:150px;">
-                                            </td>
+                                                    class="img-fluid" style="width:200px; height:150px;">
+                                            </td> --}}
                                             <td class="text-center">
                                                 <div class="d-flex justify-content-center">
                                                     <!-- Edit Button -->
