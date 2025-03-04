@@ -46,7 +46,7 @@
                                         value="{{ $gallery->heading }}"id="heading">
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="comment">Description</label>
                                     <textarea class="form-control" id="comment" name="description" rows="3">{{ $gallery->description }} </textarea>
                                     <script src="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.umd.js"></script>
@@ -72,7 +72,7 @@
                                             .then( /* ... */ )
                                             .catch( /* ... */ );
                                     </script>
-                                </div>
+                                </div> --}}
                                 <div class="col-12">
 
                                     <label for="image" class="form-label">Image</label>

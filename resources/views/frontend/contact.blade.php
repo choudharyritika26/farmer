@@ -26,61 +26,61 @@
                     <div class="wrapper">
                         <div class="row mb-5">
                             @foreach ($contact_us_detales as $contact_us_detale)
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-map-marker"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Address:</span> 
-                                            
-                                            {{-- Sardar Agro Industries
+                                <div class="col-md-3">
+                                    <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-map-marker"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p><span>Address:</span>
+
+                                                {{-- Sardar Agro Industries
 
 											Ploat No. 103-104
 											
 											Focal Point, GT Road Tanda,
 											
 											Distt. Hoshiarpur  (PB) India --}}
-                                            {!! html_entity_decode($contact_us_detale->address) !!}
-                                        </p>
+                                                {!! html_entity_decode($contact_us_detale->address) !!}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-phone"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Phone:</span> <a href="tel://1234567920">
-                                            {{-- +919417024120    --}}{{$contact_us_detale->phone_no}}
-                                         </a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-paper-plane"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">
-                                            {{$contact_us_detale->email_id}}
-                                            	{{-- info@sardaragro.com  --}}
-                                             </a></p>
+                                <div class="col-md-3">
+                                    <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-phone"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p><span>Phone:</span> <a href="tel://1234567920">
+                                                    {{-- +919417024120    --}}{{ $contact_us_detale->phone_no }}
+                                                </a></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-globe"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Website:</span> <a href="#">www.sardaragro.com  </a></p>
+                                <div class="col-md-3">
+                                    <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-paper-plane"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p><span>Email:</span> <a href="mailto:info@yoursite.com">
+                                                    {{ $contact_us_detale->email_id }}
+                                                    {{-- info@sardaragro.com  --}}
+                                                </a></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-md-3">
+                                    <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-globe"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p><span>Website:</span> <a href="#">www.sardaragro.com </a></p>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                         </div>
                         <div class="row no-gutters">
@@ -90,13 +90,14 @@
                                     <div id="form-message-warning" class="mb-4"></div>
                                     <div id="form-message-success" class="mb-4">
                                         {{-- Your message was sent, thank you! --}}
-                                        @if(session('success'))
-                                        <div class="alert alert-success">
-                                            {{ session('success') }}
-                                        </div>
-                                    @endif
+                                        @if (session('success'))
+                                            <div class="alert alert-success">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
                                     </div>
-                                    <form method="post" id="contactForm" action="{{route('store-contact')}}"   enctype="multipart/form-data" name="contactForm" class="contactForm">
+                                    <form method="post" id="contactForm" action="{{ route('store-contact') }}"
+                                        enctype="multipart/form-data" name="contactForm" class="contactForm">
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-6">

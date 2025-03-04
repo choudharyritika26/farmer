@@ -42,7 +42,18 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->productHeading->heading }}</td>
                                             <td>{{ $item->heading }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            {{-- <td>{{ $item->description }}</td> --}}
+                                            <td>
+                                                @if (strlen($item->description) > 100)
+                                                    <span class="short-description">{{ substr($item->description, 0, 100) }}...</span>
+                                                    <span class="full-description" style="display:none;">{{ $item->description }}</span>
+                                                    {{-- <button class="btn btn-info btn-sm mx-2" onclick="toggleDescription(this)" style="color:white">Read More</button> --}}
+                                                    <a href="{{ route('singleproduct-detail', $item->id) }}" class="btn btn-dark">readd more</a>
+                                                @else
+                                                    <span>{{ $item->description }}</span>
+                                                @endif
+                                            </td>
+                                            
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}" alt=""
                                                     class="img-fluid" style="width:200px; height:150px;">
@@ -101,4 +112,5 @@
             }
         }
     </script>
+    
 @endsection

@@ -47,40 +47,40 @@
                                             <option value="{{ $aboutuslist->id }}">{{ $aboutuslist->heading }}</option>
                                         @endforeach
                                     </select>
-                                </select>
-                                @if ($errors->has('heading'))
-                                <span class="text-danger">{{$errors->first('heading')}}</span>
-                                @endif
-                              </div>
+                                    </select>
+                                    @if ($errors->has('heading'))
+                                        <span class="text-danger">{{ $errors->first('heading') }}</span>
+                                    @endif
+                                </div>
 
-                                    <div class="col-12">
-                                        <label for="heading" class="form-label">Heading</label>
-                                        <input type="text" class="form-control" name="heading" id="heading">
-                                        @if ($errors->has('heading'))
-                                            <span class="text-danger">{{ $errors->first('heading') }}</span>
-                                        @endif
-                                    </div>
+                                <div class="col-12">
+                                    <label for="heading" class="form-label">Heading</label>
+                                    <input type="text" class="form-control" name="heading" id="heading">
+                                    @if ($errors->has('heading'))
+                                        <span class="text-danger">{{ $errors->first('heading') }}</span>
+                                    @endif
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="comment">Description</label>
-                                        <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
-                                        @if ($errors->has('description'))
-                                            <span class="text-danger">{{ $errors->first('description') }}</span>
-                                        @endif
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="image" class="form-label">Image</label>
-                                        <input type="file" class="form-control" name="image" id="image">
-                                        @if ($errors->has('image'))
-                                            <span class="text-danger">{{ $errors->first('image') }}</span>
-                                        @endif
-                                    </div>
+                                <div class="form-group">
+                                    <label for="comment">Description</label>
+                                    <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
+                                    @if ($errors->has('description'))
+                                        <span class="text-danger">{{ $errors->first('description') }}</span>
+                                    @endif
+                                </div>
+                                <div class="col-12">
+                                    <label for="image" class="form-label">Image</label>
+                                    <input type="file" class="form-control" name="image" id="image">
+                                    @if ($errors->has('image'))
+                                        <span class="text-danger">{{ $errors->first('image') }}</span>
+                                    @endif
+                                </div>
 
-                                    <div class="card-action P-3">
-                                        <button class="btn btn-success submitmanagementBtn"
-                                            href="{{ route('management-index') }}">Submit</button>
-                                        {{-- <button class="btn btn-danger"  href="{{route('management-index')}}">Cancel</button> --}}
-                                    </div>
+                                <div class="card-action P-3">
+                                    <button class="btn btn-success submitmanagementBtn"
+                                        href="{{ route('management-index') }}">Submit</button>
+                                    {{-- <button class="btn btn-danger"  href="{{route('management-index')}}">Cancel</button> --}}
+                                </div>
                             </form><!-- Vertical Form -->
 
                         </div>

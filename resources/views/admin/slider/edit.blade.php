@@ -29,8 +29,12 @@
                     @endif
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Edit Form</h5>
-
+                            {{-- <h5 class="card-title">Edit Form</h5> --}}
+                            <div class="errorlist">
+                                <div id="errorMessages" class="alert alert-danger" style="display: none;">
+                                    <ul></ul>
+                                </div>
+                            </div>
                             <!-- Vertical Form -->
                             <form class="row g-3" action="{{ route('update-slider',$slider->id) }}" method="post"
                                 enctype="multipart/form-data">

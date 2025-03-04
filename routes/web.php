@@ -82,6 +82,7 @@ Route::get('/singleproduct-index', [App\Http\Controllers\admin\SingleproductCont
 Route::get('/edit-singleproduct/{id}', [App\Http\Controllers\admin\SingleproductController::class,'edit'])->name('edit-singleproduct');
 Route::post('/update-singleproduct/{id}', [App\Http\Controllers\admin\SingleproductController::class,'update'])->name('update-singleproduct');
 Route::delete('/delete-singleproduct/{id}', [App\Http\Controllers\admin\SingleproductController::class,'destroy'])->name('destroy-singleproduct');
+Route::get('/singleproduct-detail/{id}', [App\Http\Controllers\admin\SingleproductController::class,'singleproductdetail'])->name('singleproduct-detail');
 
 // ==========================Contactusdetales crud=================================
 Route::get('/add-contactusdetales', [App\Http\Controllers\admin\ContactusdetalesController::class,'create'])->name('add-contactusdetales');

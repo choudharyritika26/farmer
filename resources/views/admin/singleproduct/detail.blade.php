@@ -7,19 +7,19 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1 style="margin-top: 20px">Gallery Tables</h1>
+            <h1 style="margin-top: 20px">Single Product Tables</h1>
 
-            <h1 style=" margin-left: 95%; margin-top: -30px"><a href="{{ route('add-gallery') }}">Add</a></h1>
+            <h1 style="margin-top:-30px; margin-left:95%;"><a href="{{ route('add-singleproduct') }}">Add </a></h1>
 
         </div><!-- End Page Title -->
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 w-100">
 
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"> Table</h5>
+                        <div class="card-body p-3">
+                            {{-- <h5 class="card-title"> Table</h5> --}}
 
                             <!-- Default Table -->
                             <div class="table-responsive">
@@ -27,33 +27,35 @@
                                 <thead>
                                     <tr>
                                         
-                                        <th>Sr.No</th>
+                                        {{-- <th>Sr.No</th> --}}
+                                        <th scope="col">Product</th>
                                         <th scope="col">Heading</th>
-                                        {{-- <th scope="col">Description</th> --}}
+                                        <th scope="col">Description</th>
                                         <th scope="col">Image</th>
                                         
-                                        <th scope="col">Action</th>
+                                        {{-- <th scope="col">Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($gallery as $index => $item)
+                                    {{-- @foreach ($singleproduct as $index => $item) --}}
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->heading }}</td>
-                                            {{-- <td>{{ $item->description }}</td> --}}
+                                            {{-- <td>{{ $loop->iteration }}</td> --}}
+                                            <td>{{ $singleproduct->productHeading->heading }}</td>
+                                            <td>{{ $singleproduct->heading }}</td>
+                                            <td>{{ $singleproduct->description }}</td>
                                             <td>
-                                                <img src="{{ asset('storage/' . $item->image) }}" alt=""
+                                                <img src="{{ asset('storage/' . $singleproduct->image) }}" alt=""
                                                     class="img-fluid" style="width:200px; height:150px;">
                                             </td>
-                                            <td class="text-center">
+                                            {{-- <td class="text-center">
                                                 <div class="d-flex justify-content-center">
                                                     <!-- Edit Button -->
-                                                    <a href="{{ route('edit-gallery', $item->id) }}"
+                                                    <a href="{{ route('edit-singleproduct', $item->id) }}"
                                                         class="btn btn-info btn-sm mx-2" title="Edit">
                                                         <i class="fa fa-edit" style="font-size:25px;"></i>
                                                     </a>
 
-                                                    <form method="POST" action="{{ route('destroy-gallery', $item->id) }}"
+                                                    <form method="POST" action="{{ route('destroy-singleproduct', $item->id) }}"
                                                         style="display:inline;">
                                                         @csrf
                                                         @method('delete')
@@ -66,12 +68,12 @@
                                                     </form>
 
                                                 </div>
-                                            </td>
+                                            </td> --}}
 
                                            
                                            
                                         </tr>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </tbody>
                             </table>
                         </div>

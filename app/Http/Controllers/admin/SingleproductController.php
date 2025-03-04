@@ -13,7 +13,13 @@ class SingleproductController extends Controller
     //     return view('admin.singleproduct');
     // }
 
-    public function create(){
+    public function detail($id){
+        $singleproduct = Singleproduct::find($id);
+        // $products = Product::where('is_active',1)->get();
+        return view ('admin.singleproduct.detail',compact('products','detail'));   
+       }
+
+    public function create(){    
         $products = Product::where('is_active',1)->get();
         return view ('admin.singleproduct.form',compact('products'));
        }
@@ -38,6 +44,7 @@ class SingleproductController extends Controller
         $singleproduct->product = $request->input('product');
         $singleproduct->heading = $request->input('heading');
         $singleproduct->description = $request->input('description');
+        
         // $singleproduct->image = $request->input('image');
         if($request->hasfile('image'))
         {

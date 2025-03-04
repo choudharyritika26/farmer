@@ -7,7 +7,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1 style="margin-top: 20px">Edit product</h1>
+            <h1 style="margin-top: 20px">Edit Product</h1>
             {{-- <button class="btn btn-dark" href="{{ route('product-index') }}">Submit</button> --}}
             <span>
                 <h1 style="margin-left: 95%; margin-top: -30px"><a href="{{ route('product-index') }}">Back</a></h1>
